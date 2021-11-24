@@ -3,11 +3,11 @@ const inquirer = require("inquirer");
 
 
 // Function to initialize app
-function init() {
+function initManager() {
     return inquirer
       .prompt([
         {
-          name: "title",
+          name: "managerName",
           message: "Manager Name: ",
           validate: (managerInput) => {
             if (managerInput) {
@@ -18,7 +18,54 @@ function init() {
             }
           }
         },
+        {
+            name: "managerId",
+            message: "Employee ID: ",
+            validate: (managerId) => {
+              if (managerId) {
+                return true;
+              } else {
+                console.log("Please enter an employee ID");
+                return false;
+              }
+            }
+          },
+          {
+            name: "managerEmail",
+            message: "Manager Email: ",
+            validate: (managerEmail) => {
+              if (managerEmail) {
+                return true;
+              } else {
+                console.log("Please enter an email");
+                return false;
+              }
+            }
+          },
+          {
+            name: "officeNumber",
+            message: "Office Number: ",
+            validate: (officeNumber) => {
+              if (officeNumber) {
+                return true;
+              } else {
+                console.log("Please enter an office number");
+                return false;
+              }
+            }
+          },
+          {
+            type: "list",
+            name: "continuation",
+            message: "Next Team Member?",
+            choices: [
+                "Engineer",
+                "Intern",
+                "No, finalize team",
+              ],
+          },
       ]) 
 }
 
-init();
+
+initManager();
