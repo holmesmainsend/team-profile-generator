@@ -6,8 +6,8 @@ test('creates an employee object', () => {
 
     expect(employee.name).toBe('Harold');
     expect(employee.id).toEqual(expect.any(Number));
-    expect(employee.email).toBe('example@aol.com');
-    expect(employee.role).toBe('employee');
+    expect(employee.email).toEqual(expect.any(String));
+    expect(employee.role).toEqual(expect.any(String));
 })
 
 
