@@ -61,11 +61,22 @@ function initManager() {
             choices: [
                 "Engineer",
                 "Intern",
-                "No, finalize team",
+                "None, finalize team",
               ],
           },
       ]) 
 }
 
 
-initManager();
+initManager()
+.then(data => {
+    if (data.continuation === "Engineer") {
+        console.log("Adding new engineer to team");
+
+    } else if (data.continuation === "Intern") {
+        console.log("Adding new intern to team");
+
+    } else {
+        console.log("End of team");
+    }
+});
