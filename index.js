@@ -1,3 +1,5 @@
+// TODO: make initEngineer and initIntern functions recursive
+
 const fs = require("fs");
 const inquirer = require("inquirer");
 
@@ -179,28 +181,28 @@ function initIntern() {
   ]);
 }
 
-initManager().then((data) => {
-  if (data.continuation === "Engineer") {
-    initEngineer().then((data) => {
-      if (data.continuation === "Engineer") {
-        initEngineer();
-      } else if (data.continuation === "Intern") {
-        initIntern();
-      } else {
-        console.log("End of team");
-      }
-    });
-  } else if (data.continuation === "Intern") {
-    initIntern().then((data) => {
-        if (data.continuation === "Engineer") {
-          initEngineer();
-        } else if (data.continuation === "Intern") {
-          initIntern();
-        } else {
-          console.log("End of team");
-        }
-      });
-  } else {
-    console.log("End of team");
-  }
-});
+// initManager().then((data) => {
+//   if (data.continuation === "Engineer") {
+//     initEngineer().then((data) => {
+//       if (data.continuation === "Engineer") {
+//         initEngineer();
+//       } else if (data.continuation === "Intern") {
+//         initIntern();
+//       } else {
+//         console.log("End of team");
+//       }
+//     });
+//   } else if (data.continuation === "Intern") {
+//     initIntern().then((data) => {
+//         if (data.continuation === "Engineer") {
+//           initEngineer();
+//         } else if (data.continuation === "Intern") {
+//           initIntern();
+//         } else {
+//           console.log("End of team");
+//         }
+//       });
+//   } else {
+//     console.log("End of team");
+//   }
+// });
