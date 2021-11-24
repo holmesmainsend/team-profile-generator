@@ -11,11 +11,11 @@ test('creates an employee object', () => {
 })
 
 
-// test('gets employee details as an object', () => {
-//     const employee = new Employee('Harold');
+test('gets employee details', () => {
+    const employee = new Employee('Harold');
 
-//     expect(employee.getName()).toHaveProperty('name');
-//     expect(employee.getId()).toHaveProperty('id');
-//     expect(employee.getEmail()).toHaveProperty('email');
-//     expect(employee.getRole()).toHaveProperty('role');
-// })
+    expect(employee.getName()).toHaveProperty('name');
+    expect(employee.getId()).toHaveProperty('id');
+    expect(employee.getEmail()).toHaveProperty('email');
+    expect(employee.getRole()).toHaveProperty('role');
+})
