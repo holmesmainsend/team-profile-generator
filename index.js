@@ -1,9 +1,13 @@
 // TODO: change lib children classes so that they accept parameters without setting everything equals to new values
 
-
 const fs = require("fs");
 const inquirer = require("inquirer");
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
+const Jeff = new Manager("Jeff");
+console.log(Jeff);
 
 // Function to initialize app
 function initManager() {
@@ -233,4 +237,4 @@ function initIntern() {
 }
 
 
-initManager();
+// initManager();
