@@ -1,4 +1,3 @@
-// TODO: create mocks to re-pass all tests
 // TODO: create for loop (or forEach) based on length of arrays to pass in values to fs; remove hardcoded Jeffs, Bronsons, and Eugenes
 // TODO: account for empty intern and/or engineer array
 // TODO: add number/string validation for inquirer

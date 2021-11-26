@@ -1,13 +1,13 @@
 const Employee = require('../__mocks__/Employee');
 
-class Engineer extends Employee {
-    constructor(name, id, email, github) {
+module.exports = class Manager extends Employee {
+    constructor(name, id, email, officeNumber) {
       super();
-      this.role = 'Engineer';
+      this.role = 'Manager';
       this.name = name;
       this.id = id;
       this.email = email;
-      this.github = github;
+      this.officeNumber = officeNumber;
     }
 
     getName() {
@@ -30,12 +30,4 @@ class Engineer extends Employee {
             role: this.role
         };
       }
-    getGithub() {
-        return {
-            github: this.github
-        };
-      }
 }
-
-
-module.exports = Engineer;
