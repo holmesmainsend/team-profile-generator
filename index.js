@@ -1,6 +1,4 @@
-// TODO: create for loop (or forEach) based on length of arrays to pass in values to fs; remove hardcoded Jeffs, Bronsons, and Eugenes
-// TODO: add number/string validation for inquirer
-// TODO: account for spaces in inquirer answers(?)
+// TODO: create for loop (or forEach) based on length of arrays to pass in values to fs
 // TODO: create HTML file using fs
 // TODO: add stylesheet + styling (bootstrap?)
 // TODO: change console log message upon finalization
@@ -9,6 +7,8 @@
 
 const fs = require("fs");
 const inquirer = require("inquirer");
+const generateHTML = require("./generateHTML");
+
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -78,18 +78,18 @@ function initManager() {
   ])
   .then((data) => {
       if (data.continuation === "Engineer") {
-        managerArray.push(data)
+        managerArray.push(data);
         initEngineer();
       } else if (data.continuation === "Intern") {
-        managerArray.push(data)
+        managerArray.push(data);
         initIntern();
       } else {
-        managerArray.push(data)
-        let Jeff = new Manager(managerArray[0].name, managerArray[0].id, managerArray[0].email, managerArray[0].officeNumber);
+        managerArray.push(data);
+        generateHTML.managerHTML(managerArray[0]);
         console.log("End of team");
       }
   });
-}
+};
 
 function initEngineer() {
   return inquirer
@@ -151,24 +151,26 @@ function initEngineer() {
   ])
   .then((data) => {
     if (data.continuation === "Engineer") {
-      engineerArray.push(data)
+      engineerArray.push(data);
       initEngineer();
     } else if (data.continuation === "Intern") {
-      engineerArray.push(data)
+      engineerArray.push(data);
       initIntern();
     } else {
-      engineerArray.push(data)
-      let Jeff = new Manager(managerArray[0].name, managerArray[0].id, managerArray[0].email, managerArray[0].officeNumber);
-      let Bronson = new Engineer(engineerArray[0].name, engineerArray[0].id, engineerArray[0].email, engineerArray[0].github);
-      if (internArray = []) {
-        console.log("No interns!")
+      engineerArray.push(data);
+      // Add forEach + generateHTML loop here
+      if (internArray == []) {
+        console.log("No interns!");
       } else {
-      let Eugene = new Intern(internArray[0].name, internArray[0].id, internArray[0].email, internArray[0].school);
-      console.log("End of team");
+        generateHTML.internHTML(internArray[0]);
+      // Add forEach + generateHTML loop here
       }
+      generateHTML.engineerHTML(engineerArray[0]);
+      generateHTML.managerHTML(managerArray[0]);
+      console.log("End of team");
     }
 });
-}
+};
 
 function initIntern() {
   return inquirer
@@ -230,23 +232,25 @@ function initIntern() {
   ])
   .then((data) => {
     if (data.continuation === "Engineer") {
-      internArray.push(data)
+      internArray.push(data);
       initEngineer();
     } else if (data.continuation === "Intern") {
-      internArray.push(data)
+      internArray.push(data);
       initIntern();
     } else {
-      internArray.push(data)
-      let Jeff = new Manager(managerArray[0].name, managerArray[0].id, managerArray[0].email, managerArray[0].officeNumber);
-      if (engineerArray = []) {
+      internArray.push(data);
+      // Add forEach + generateHTML loop here
+      if (engineerArray == []) {
         console.log("No engineers!")
       } else {
-      let Bronson = new Engineer(engineerArray[0].name, engineerArray[0].id, engineerArray[0].email, engineerArray[0].github);
+        generateHTML.engineerHTML(engineerArray[0]);
+      // Add forEach + generateHTML loop here
       }
-      let Eugene = new Intern(internArray[0].name, internArray[0].id, internArray[0].email, internArray[0].school);
+      generateHTML.internHTML(internArray[0]);
+      generateHTML.managerHTML(managerArray[0]);
       console.log("End of team");
     }
 });
-}
+};
 
 initManager();
