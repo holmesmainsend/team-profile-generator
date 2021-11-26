@@ -17,7 +17,6 @@ function internHTML(internArray) {
 };
 
 
-
 exports.managerHTML = managerHTML;
 exports.engineerHTML = engineerHTML;
 exports.internHTML = internHTML;

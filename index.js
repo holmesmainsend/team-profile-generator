@@ -1,4 +1,3 @@
-// TODO: create for loop (or forEach) based on length of arrays to pass in values to fs
 // TODO: create HTML file using fs
 // TODO: add stylesheet + styling (bootstrap?)
 // TODO: change console log message upon finalization
@@ -158,14 +157,12 @@ function initEngineer() {
       initIntern();
     } else {
       engineerArray.push(data);
-      // Add forEach + generateHTML loop here
+      engineerArray.forEach(element => {generateHTML.engineerHTML(element)});
       if (internArray == []) {
         console.log("No interns!");
       } else {
-        generateHTML.internHTML(internArray[0]);
-      // Add forEach + generateHTML loop here
+        internArray.forEach(element => {generateHTML.internHTML(element)});
       }
-      generateHTML.engineerHTML(engineerArray[0]);
       generateHTML.managerHTML(managerArray[0]);
       console.log("End of team");
     }
@@ -239,14 +236,12 @@ function initIntern() {
       initIntern();
     } else {
       internArray.push(data);
-      // Add forEach + generateHTML loop here
+      internArray.forEach(element => {generateHTML.internHTML(element)});
       if (engineerArray == []) {
         console.log("No engineers!")
       } else {
-        generateHTML.engineerHTML(engineerArray[0]);
-      // Add forEach + generateHTML loop here
+        engineerArray.forEach(element => {generateHTML.engineerHTML(element)});
       }
-      generateHTML.internHTML(internArray[0]);
       generateHTML.managerHTML(managerArray[0]);
       console.log("End of team");
     }
