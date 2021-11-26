@@ -1,5 +1,4 @@
 // TODO: create for loop (or forEach) based on length of arrays to pass in values to fs; remove hardcoded Jeffs, Bronsons, and Eugenes
-// TODO: account for empty intern and/or engineer array
 // TODO: add number/string validation for inquirer
 // TODO: account for spaces in inquirer answers(?)
 // TODO: create HTML file using fs
@@ -161,8 +160,12 @@ function initEngineer() {
       engineerArray.push(data)
       let Jeff = new Manager(managerArray[0].name, managerArray[0].id, managerArray[0].email, managerArray[0].officeNumber);
       let Bronson = new Engineer(engineerArray[0].name, engineerArray[0].id, engineerArray[0].email, engineerArray[0].github);
+      if (internArray = []) {
+        console.log("No interns!")
+      } else {
       let Eugene = new Intern(internArray[0].name, internArray[0].id, internArray[0].email, internArray[0].school);
       console.log("End of team");
+      }
     }
 });
 }
@@ -235,7 +238,11 @@ function initIntern() {
     } else {
       internArray.push(data)
       let Jeff = new Manager(managerArray[0].name, managerArray[0].id, managerArray[0].email, managerArray[0].officeNumber);
+      if (engineerArray = []) {
+        console.log("No engineers!")
+      } else {
       let Bronson = new Engineer(engineerArray[0].name, engineerArray[0].id, engineerArray[0].email, engineerArray[0].github);
+      }
       let Eugene = new Intern(internArray[0].name, internArray[0].id, internArray[0].email, internArray[0].school);
       console.log("End of team");
     }
