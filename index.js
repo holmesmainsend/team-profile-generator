@@ -1,11 +1,14 @@
 // TODO: make initEngineer and initIntern functions recursive
+// TODO: change lib children classes so that they accept parameters without setting everything equals to new values
 
 const fs = require("fs");
 const inquirer = require("inquirer");
 
 // Function to initialize app
 function initManager() {
-  return inquirer.prompt([
+  teamArray = [];
+  return inquirer
+  .prompt([
     {
       name: "managerName",
       message: "Manager Name: ",
@@ -60,11 +63,27 @@ function initManager() {
       message: "Next Team Member?",
       choices: ["Engineer", "Intern", "None, finalize team"],
     },
-  ]);
+  ])
+  .then((data) => {
+      if (data.continuation === "Engineer") {
+        teamArray.push(data)
+        console.log(teamArray)
+        initEngineer();
+      } else if (data.continuation === "Intern") {
+        teamArray.push(data)
+        console.log(teamArray)
+        initIntern();
+      } else {
+        teamArray.push(data)
+        console.log(teamArray)
+        console.log("End of team");
+      }
+  });
 }
 
 function initEngineer() {
-  return inquirer.prompt([
+  return inquirer
+  .prompt([
     {
       name: "engineerName",
       message: "Engineer Name: ",
@@ -119,11 +138,21 @@ function initEngineer() {
       message: "Next Team Member?",
       choices: ["Engineer", "Intern", "None, finalize team"],
     },
-  ]);
+  ])
+  .then((data) => {
+    if (data.continuation === "Engineer") {
+      initEngineer();
+    } else if (data.continuation === "Intern") {
+      initIntern();
+    } else {
+      console.log("End of team");
+    }
+});
 }
 
 function initIntern() {
-  return inquirer.prompt([
+  return inquirer
+  .prompt([
     {
       name: "internName",
       message: "Intern Name: ",
@@ -178,31 +207,17 @@ function initIntern() {
       message: "Next Team Member?",
       choices: ["Engineer", "Intern", "None, finalize team"],
     },
-  ]);
+  ])
+  .then((data) => {
+    if (data.continuation === "Engineer") {
+      initEngineer();
+    } else if (data.continuation === "Intern") {
+      initIntern();
+    } else {
+      console.log("End of team");
+    }
+});
 }
 
-// initManager().then((data) => {
-//   if (data.continuation === "Engineer") {
-//     initEngineer().then((data) => {
-//       if (data.continuation === "Engineer") {
-//         initEngineer();
-//       } else if (data.continuation === "Intern") {
-//         initIntern();
-//       } else {
-//         console.log("End of team");
-//       }
-//     });
-//   } else if (data.continuation === "Intern") {
-//     initIntern().then((data) => {
-//         if (data.continuation === "Engineer") {
-//           initEngineer();
-//         } else if (data.continuation === "Intern") {
-//           initIntern();
-//         } else {
-//           console.log("End of team");
-//         }
-//       });
-//   } else {
-//     console.log("End of team");
-//   }
-// });
+
+initManager();
