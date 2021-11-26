@@ -1,6 +1,7 @@
 function managerHTML(managerArray) {
     let {name : managerName, id : managerId, email : managerEmail, officeNumber} = managerArray;
-    return `    <div>
+    return `
+    <div>
         <h2>${managerName}, Manager</h2>
         <h3>${managerId}</h3>
         <h3>${managerEmail}</h3>
@@ -10,7 +11,8 @@ function managerHTML(managerArray) {
 
 function engineerHTML(engineerArray) {
     let {name : engineerName, id : engineerId, email : engineerEmail, github} = engineerArray;
-    return `    <div>
+    return `
+    <div>
         <h2>${engineerName}, Engineer</h2>
         <h3>${engineerId}</h3>
         <h3>${engineerEmail}</h3>
@@ -20,7 +22,8 @@ function engineerHTML(engineerArray) {
 
 function internHTML(internArray) {
     let {name : internName, id : internId, email : internEmail, school} = internArray;
-    return `    <div>
+    return `
+    <div>
         <h2>${internName}, Intern</h2>
         <h3>${internId}</h3>
         <h3>${internEmail}</h3>
@@ -28,8 +31,8 @@ function internHTML(internArray) {
     </div>`;
 };
 
-function finalHTML(managerArray, engineerArray, internArray) {
-`<!DOCTYPE html>
+function finalHTML(managerFinal, engineerFinal, internFinal) {
+return `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8">
@@ -40,11 +43,12 @@ function finalHTML(managerArray, engineerArray, internArray) {
       </head>
       <body>
         <h1>Your Team</h1>
-        ${managerArray}
-        ${engineerArray}
-        ${internArray}
-      </body>
-    </html>`;
+        ${managerFinal}
+        ${engineerFinal}
+        ${internFinal}
+
+    </body>
+</html>`;
 }
 
 

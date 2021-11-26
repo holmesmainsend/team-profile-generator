@@ -1,4 +1,4 @@
-// TODO: create HTML file using fs
+// TODO: find way to cycle through all engineer/array items for adding to HTML
 // TODO: add stylesheet + styling (bootstrap?)
 // TODO: change console log message upon finalization
 // TODO: create video and create sample HTML page in process
@@ -100,7 +100,8 @@ function initManager() {
         initIntern();
       } else {
         managerArray.push(data);
-        writeFile(generateHTML.managerHTML(managerArray[0]));
+        let managerFinal = generateHTML.managerHTML(managerArray[0]);
+        writeFile(generateHTML.finalHTML(managerFinal));
         console.log("End of team");
       }
   });
@@ -173,13 +174,14 @@ function initEngineer() {
       initIntern();
     } else {
       engineerArray.push(data);
-      engineerArray.forEach(element => {generateHTML.engineerHTML(element)});
+      let engineerFinal = generateHTML.engineerHTML(engineerArray[0]);
       if (internArray == []) {
         console.log("No interns!");
       } else {
-        internArray.forEach(element => {generateHTML.internHTML(element)});
+        internFinal = generateHTML.internHTML(internArray[0]);
       }
-      generateHTML.managerHTML(managerArray[0]);
+      let managerFinal = generateHTML.managerHTML(managerArray[0]);
+      writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
       console.log("End of team");
     }
 });
@@ -252,13 +254,14 @@ function initIntern() {
       initIntern();
     } else {
       internArray.push(data);
-      internArray.forEach(element => {generateHTML.internHTML(element)});
+      let internFinal = generateHTML.internHTML(internArray[0]);
       if (engineerArray == []) {
-        console.log("No engineers!")
+        console.log("No engineers!");
       } else {
-        engineerArray.forEach(element => {generateHTML.engineerHTML(element)});
+        engineerFinal = generateHTML.engineerHTML(engineerArray[0]);
       }
-      generateHTML.managerHTML(managerArray[0]);
+      let managerFinal = generateHTML.managerHTML(managerArray[0]);
+      writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
       console.log("End of team");
     }
 });
