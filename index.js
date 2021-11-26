@@ -1,6 +1,5 @@
 // TODO: find way to cycle through all engineer/array items for adding to HTML
 // TODO: add stylesheet + styling (bootstrap?)
-// TODO: change console log message upon finalization
 // TODO: create video and create sample HTML page in process
 // TODO: add README using README generator
 
@@ -102,7 +101,7 @@ function initManager() {
         managerArray.push(data);
         let managerFinal = generateHTML.managerHTML(managerArray[0]);
         writeFile(generateHTML.finalHTML(managerFinal));
-        console.log("End of team");
+        console.log("Your team page has been generated!");
       }
   });
 };
@@ -182,7 +181,7 @@ function initEngineer() {
       }
       let managerFinal = generateHTML.managerHTML(managerArray[0]);
       writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
-      console.log("End of team");
+      console.log("Your team page has been generated!");
     }
 });
 };
@@ -262,7 +261,7 @@ function initIntern() {
       }
       let managerFinal = generateHTML.managerHTML(managerArray[0]);
       writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
-      console.log("End of team");
+      console.log("Your team page has been generated!");
     }
 });
 };
