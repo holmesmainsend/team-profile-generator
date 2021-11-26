@@ -24,8 +24,8 @@ function initManager() {
     {
       name: "name",
       message: "Manager First Name: ",
-      validate: (managerName) => {
-        if (managerName) {
+      validate: (name) => {
+        if (name) {
           return true;
         } else {
           console.log("Please enter a manager first name");
@@ -36,8 +36,8 @@ function initManager() {
     {
       name: "id",
       message: "Employee ID: ",
-      validate: (managerId) => {
-        if (managerId) {
+      validate: (id) => {
+        if (id) {
           return true;
         } else {
           console.log("Please enter an employee ID");
@@ -48,8 +48,8 @@ function initManager() {
     {
       name: "email",
       message: "Manager Email: ",
-      validate: (managerEmail) => {
-        if (managerEmail) {
+      validate: (email) => {
+        if (email) {
           return true;
         } else {
           console.log("Please enter an email");
@@ -97,8 +97,8 @@ function initEngineer() {
     {
       name: "name",
       message: "Engineer First Name: ",
-      validate: (engineerName) => {
-        if (engineerName) {
+      validate: (name) => {
+        if (name) {
           return true;
         } else {
           console.log("Please enter an engineer first name");
@@ -109,8 +109,8 @@ function initEngineer() {
     {
       name: "id",
       message: "Employee ID: ",
-      validate: (engineerId) => {
-        if (engineerId) {
+      validate: (id) => {
+        if (id) {
           return true;
         } else {
           console.log("Please enter an employee ID");
@@ -121,8 +121,8 @@ function initEngineer() {
     {
       name: "email",
       message: "Engineer Email: ",
-      validate: (engineerEmail) => {
-        if (engineerEmail) {
+      validate: (email) => {
+        if (email) {
           return true;
         } else {
           console.log("Please enter an email");
@@ -133,8 +133,8 @@ function initEngineer() {
     {
       name: "github",
       message: "GitHub Username: ",
-      validate: (githubUser) => {
-        if (githubUser) {
+      validate: (github) => {
+        if (github) {
           return true;
         } else {
           console.log("Please enter a username");
@@ -176,8 +176,8 @@ function initIntern() {
     {
       name: "name",
       message: "Intern First Name: ",
-      validate: (internName) => {
-        if (internName) {
+      validate: (name) => {
+        if (name) {
           return true;
         } else {
           console.log("Please enter an intern first name");
@@ -188,8 +188,8 @@ function initIntern() {
     {
       name: "id",
       message: "Employee ID: ",
-      validate: (internId) => {
-        if (internId) {
+      validate: (id) => {
+        if (id) {
           return true;
         } else {
           console.log("Please enter an employee ID");
@@ -200,8 +200,8 @@ function initIntern() {
     {
       name: "email",
       message: "Intern Email: ",
-      validate: (internEmail) => {
-        if (internEmail) {
+      validate: (email) => {
+        if (email) {
           return true;
         } else {
           console.log("Please enter an email");
