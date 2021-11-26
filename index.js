@@ -6,8 +6,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const Jeff = new Manager("Jeff");
-console.log(Jeff);
+const Jeff = new Manager("Jeff", 27, "here@here.com", 4);
+const Bronson = new Engineer ("Bronson", 33, "engine@engine.net", "gitter@github.com");
+const Eugene = new Intern ("Eugene", 10, "eugy@hotmail.com", "URI");
+console.log(Jeff, Bronson, Eugene);
 
 // Function to initialize app
 function initManager() {
