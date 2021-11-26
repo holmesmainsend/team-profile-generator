@@ -1,8 +1,9 @@
-// TODO: make initEngineer and initIntern functions recursive
 // TODO: change lib children classes so that they accept parameters without setting everything equals to new values
+
 
 const fs = require("fs");
 const inquirer = require("inquirer");
+
 
 // Function to initialize app
 function initManager() {
@@ -141,10 +142,16 @@ function initEngineer() {
   ])
   .then((data) => {
     if (data.continuation === "Engineer") {
+      teamArray.push(data)
+      console.log(teamArray)
       initEngineer();
     } else if (data.continuation === "Intern") {
+      teamArray.push(data)
+      console.log(teamArray)
       initIntern();
     } else {
+      teamArray.push(data)
+      console.log(teamArray)
       console.log("End of team");
     }
 });
@@ -210,10 +217,16 @@ function initIntern() {
   ])
   .then((data) => {
     if (data.continuation === "Engineer") {
+      teamArray.push(data)
+      console.log(teamArray)
       initEngineer();
     } else if (data.continuation === "Intern") {
+      teamArray.push(data)
+      console.log(teamArray)
       initIntern();
     } else {
+      teamArray.push(data)
+      console.log(teamArray)
       console.log("End of team");
     }
 });
