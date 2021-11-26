@@ -12,6 +12,22 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// Function to write README file
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./teamPage.html', fileContent, err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve({
+        ok: true,
+        message: 'File created!'
+      });
+    });
+  });
+};
+
 // Function to initialize app
 function initManager() {
   managerArray = [];
@@ -84,7 +100,7 @@ function initManager() {
         initIntern();
       } else {
         managerArray.push(data);
-        generateHTML.managerHTML(managerArray[0]);
+        writeFile(generateHTML.managerHTML(managerArray[0]));
         console.log("End of team");
       }
   });
