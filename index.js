@@ -1,15 +1,12 @@
-// TODO: change lib children classes so that they accept parameters without setting everything equals to new values
-
 const fs = require("fs");
 const inquirer = require("inquirer");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const Jeff = new Manager("Jeff", 27, "here@here.com", 4);
-const Bronson = new Engineer ("Bronson", 33, "engine@engine.net", "gitter@github.com");
-const Eugene = new Intern ("Eugene", 10, "eugy@hotmail.com", "URI");
-console.log(Jeff, Bronson, Eugene);
+// const Bronson = new Engineer ("Bronson", 33, "engine@engine.net", "gitter@github.com");
+// const Eugene = new Intern ("Eugene", 10, "eugy@hotmail.com", "URI");
+// console.log(Bronson, Eugene);
 
 // Function to initialize app
 function initManager() {
@@ -17,7 +14,7 @@ function initManager() {
   return inquirer
   .prompt([
     {
-      name: "managerName",
+      name: "name",
       message: "Manager Name: ",
       validate: (managerName) => {
         if (managerName) {
@@ -29,7 +26,7 @@ function initManager() {
       },
     },
     {
-      name: "managerId",
+      name: "id",
       message: "Employee ID: ",
       validate: (managerId) => {
         if (managerId) {
@@ -41,7 +38,7 @@ function initManager() {
       },
     },
     {
-      name: "managerEmail",
+      name: "email",
       message: "Manager Email: ",
       validate: (managerEmail) => {
         if (managerEmail) {
@@ -82,7 +79,8 @@ function initManager() {
         initIntern();
       } else {
         teamArray.push(data)
-        console.log(teamArray)
+        let Jeff = new Manager(teamArray[0].name, teamArray[0].id, teamArray[0].email, teamArray[0].officeNumber);
+        console.log(Jeff);
         console.log("End of team");
       }
   });
@@ -239,4 +237,4 @@ function initIntern() {
 }
 
 
-// initManager();
+initManager();
