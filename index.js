@@ -1,4 +1,7 @@
 // TODO: find way to cycle through all engineer/array items for adding to HTML
+// TODO: add email/github linking
+// TODO: account for spaces/number validation
+// TODO: fix wraparound text for email(?)
 // TODO: create video and create sample HTML page in process
 // TODO: add README using README generator
 
