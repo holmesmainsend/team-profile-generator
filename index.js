@@ -1,5 +1,4 @@
 // TODO: find way to cycle through all engineer/array items for adding to HTML
-// TODO: finalize bootstrap styling
 // TODO: create video and create sample HTML page in process
 // TODO: add README using README generator
 
