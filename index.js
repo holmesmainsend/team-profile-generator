@@ -1,7 +1,8 @@
 // TODO: find way to cycle through all engineer/array items for adding to HTML
-// TODO: add email/github linking
-// TODO: account for spaces/number validation
-// TODO: fix wraparound text for email(?)
+// TODO: fix github linking
+// TODO: add number validation
+// TODO: account for spaces
+// TODO: fix formatting on page
 // TODO: create video and create sample HTML page in process
 // TODO: add README using README generator
 
@@ -29,7 +30,6 @@ const writeFile = fileContent => {
   });
 };
 
-// Function to initialize app
 function initManager() {
   managerArray = [];
   engineerArray = [];
@@ -229,12 +229,12 @@ function initIntern() {
     },
     {
       name: "school",
-      message: "School Name (no spaces): ",
+      message: "School Name: ",
       validate: (school) => {
         if (school) {
           return true;
         } else {
-          console.log("Please enter a school name (no spaces");
+          console.log("Please enter a school name");
           return false;
         }
       },
@@ -268,4 +268,5 @@ function initIntern() {
 });
 };
 
+// App Initialization
 initManager();

@@ -10,7 +10,7 @@ function managerHTML(managerArray) {
         <h2 class = "card-title text-center">${managerName}</h2>
           <ul class = "list-group list-group-flush">
             <li class="list-group-item text-dark bg-info border-bottom border-dark">ID: ${managerId}</li>
-            <li class="list-group-item text-dark bg-info border-bottom border-dark">Email: ${managerEmail}</li>
+            <li class="list-group-item text-dark bg-info border-bottom border-dark">Email: <a href = "mailto: ${managerEmail}">${managerEmail}</a></li>
             <li class="list-group-item text-dark bg-info">Office Number: ${officeNumber}</li>
           </ul>
         </div>
@@ -29,8 +29,8 @@ function engineerHTML(engineerArray) {
         <h2 class = "card-title text-center">${engineerName}</h2>
           <ul class = "list-group list-group-flush">
             <li class="list-group-item text-dark bg-warning border-bottom border-dark">ID: ${engineerId}</li>
-            <li class="list-group-item text-dark bg-warning border-bottom border-dark">Email: ${engineerEmail}</li>
-            <li class="list-group-item text-dark bg-warning">Office Number: ${github}</li>
+            <li class="list-group-item text-dark bg-warning border-bottom border-dark">Email: <a href = "mailto: ${engineerEmail}">${engineerEmail}</a></li>
+            <li class="list-group-item text-dark bg-warning">GitHub: <a href="github.com/${github}">${github}</a></li>
           </ul>
         </div>
       </div>`;
@@ -48,8 +48,8 @@ function internHTML(internArray) {
         <h2 class = "card-title text-center">${internName}</h2>
           <ul class = "list-group list-group-flush">
             <li class="list-group-item text-dark bg-danger border-bottom border-dark">ID: ${internId}</li>
-            <li class="list-group-item text-dark bg-danger border-bottom border-dark">Email: ${internEmail}</li>
-            <li class="list-group-item text-dark bg-danger">Office Number: ${school}</li>
+            <li class="list-group-item text-dark bg-danger border-bottom border-dark">Email: <a href = "mailto: ${internEmail}">${internEmail}</a></li>
+            <li class="list-group-item text-dark bg-danger">School: ${school}</li>
           </ul>
         </div>
       </div>`;
@@ -76,7 +76,7 @@ function finalHTML(managerFinal, engineerFinal, internFinal) {
       </div>
   </div>
         <div class = "container pt-5 mt-4 px-3">
-            ${managerFinal}
+            ${managerFinal} ${engineerFinal} ${internFinal}
         </div>
       </body>
 </html>`;
