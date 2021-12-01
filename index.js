@@ -10,9 +10,11 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const generateHTML = require("./generateHTML");
 
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+
 
 // Function to write README file
 const writeFile = fileContent => {
@@ -31,11 +33,9 @@ const writeFile = fileContent => {
 };
 
 function initManager() {
-  managerArray = [];
-  engineerArray = [];
-  internArray = [];
+  teamArray = [];
 
-  return inquirer
+  inquirer
   .prompt([
     {
       name: "name",
@@ -93,23 +93,22 @@ function initManager() {
     },
   ])
   .then((data) => {
+    const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+    teamArray.push(manager);
       if (data.continuation === "Engineer") {
-        managerArray.push(data);
         initEngineer();
       } else if (data.continuation === "Intern") {
-        managerArray.push(data);
         initIntern();
       } else {
-        managerArray.push(data);
-        let managerFinal = generateHTML.managerHTML(managerArray[0]);
-        writeFile(generateHTML.finalHTML(managerFinal));
+        // let managerFinal = generateHTML.managerHTML(teamArray[0]);
+        writeFile(generateHTML.teamCreator(teamArray));
         console.log("Your team page has been generated!");
       }
   });
 };
 
 function initEngineer() {
-  return inquirer
+  inquirer
   .prompt([
     {
       name: "name",
@@ -167,29 +166,25 @@ function initEngineer() {
     },
   ])
   .then((data) => {
+    const engineer = new Engineer(data.name, data.id, data.email, data.github);
+    teamArray.push(engineer);
     if (data.continuation === "Engineer") {
-      engineerArray.push(data);
       initEngineer();
     } else if (data.continuation === "Intern") {
-      engineerArray.push(data);
       initIntern();
     } else {
-      engineerArray.push(data);
-      let engineerFinal = generateHTML.engineerHTML(engineerArray[0]);
-      if (internArray == []) {
-        console.log("No interns!");
-      } else {
-        internFinal = generateHTML.internHTML(internArray[0]);
-      }
-      let managerFinal = generateHTML.managerHTML(managerArray[0]);
-      writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
+    //   for (i = 0; i < engineerArray.length; i ++) {
+    //     var engineerFinal = generateHTML.engineerHTML(engineerArray[i]);
+    // } 
+      // let managerFinal = generateHTML.managerHTML(managerArray[0]);
+      // writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
       console.log("Your team page has been generated!");
     }
 });
 };
 
 function initIntern() {
-  return inquirer
+  inquirer
   .prompt([
     {
       name: "name",
@@ -247,26 +242,21 @@ function initIntern() {
     },
   ])
   .then((data) => {
+    const intern = new Intern(data.name, data.id, data.email, data.school);
+    teamArray.push(intern);
+    console.log(teamArray);
     if (data.continuation === "Engineer") {
-      internArray.push(data);
       initEngineer();
     } else if (data.continuation === "Intern") {
-      internArray.push(data);
       initIntern();
     } else {
-      internArray.push(data);
-      let internFinal = generateHTML.internHTML(internArray[0]);
-      if (engineerArray == []) {
-        console.log("No engineers!");
-      } else {
-        engineerFinal = generateHTML.engineerHTML(engineerArray[0]);
-      }
-      let managerFinal = generateHTML.managerHTML(managerArray[0]);
-      writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
+      // let internFinal = generateHTML.internHTML(internArray[0]);
+      // let managerFinal = generateHTML.managerHTML(managerArray[0]);
+      // writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
       console.log("Your team page has been generated!");
     }
 });
 };
 
-// App Initialization
+// App Start
 initManager();
