@@ -1,22 +1,5 @@
 /* 
-One single HTML function
-const teamCreator = (teamArray) => {
-  (change lets to capture get functions within markdown)
-  -- all of current functions except convert to e.g. const managerHTML = managerArray => {
-    return `
-      <div class = "card bg-dark text-info border border-info" style = "width: 18%">
-        <h2 class = "card-title text-center">${manager.getName()}</h2>
-          <ul class = "list-group list-group-flush">
-            <li class="list-group-item text-dark bg-info border-bottom border-dark">ID: ${managerId}</li>
-            <li class="list-group-item text-dark bg-info border-bottom border-dark">Email: <a href = "mailto: ${managerEmail}">${managerEmail}</a></li>
-            <li class="list-group-item text-dark bg-info">Office Number: ${officeNumber}</li>
-          </ul>
-        </div>
-      </div>`;
-  }
-
-  -- next step would be to take all cards generated and create single function to handle all HTML created here, then push it all into finalHTML --
-
+Return to modularized format, test for each array (use filter to create individual arrays from teamArray)
 */
 
 const Employee = require('./lib/Employee');
@@ -24,9 +7,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+
 const teamCreator = teamArray => {
-
-
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -45,9 +27,13 @@ const teamCreator = teamArray => {
           <div class="px-5 text-warning border-bottom border-caution">Engineers</div>
           <div class="px-5 text-danger border-bottom border-danger">Interns</div>
       </div>
-  </div>
+      </div>
         <div class = "container pt-5 mt-4 d-flex flex-row justify-content-around align-items-center">
             
+
+
+
+
             <div class = "card bg-dark text-info border border-info" style = "width: 18%">
                 <h2 class = "card-title text-center"> Manager Name </h2>
                   <ul class = "list-group list-group-flush">
@@ -56,14 +42,20 @@ const teamCreator = teamArray => {
                     <li class="list-group-item text-dark bg-info">Office Number: Office No. </li>
                   </ul>
             </div>
+
+
+
             <div class = "card bg-dark text-warning border border-warning" style = "width: 18%">
               <h2 class = "card-title text-center"> Engineer Name </h2>
                 <ul class = "list-group list-group-flush">
                   <li class="list-group-item text-dark bg-warning border-bottom border-dark">ID: Engineer ID </li>
                   <li class="list-group-item text-dark bg-warning border-bottom border-dark">Email: <a class = "text-reset" href = "mailto: Engineer Email"> Engineer Email </a></li>
-                  <li class="list-group-item text-dark bg-warning">GitHub: <a class = "text-reset" href="github.com/ Github "> Github </a></li>
+                  <li class="list-group-item text-dark bg-warning">GitHub: <a class = "text-reset" href="https://github.com/Github"> Github </a></li>
                 </ul>
             </div>
+
+
+
             <div class = "card bg-dark text-danger border border-danger" style = "width: 18%">
               <h2 class = "card-title text-center"> Intern Name </h2>
                 <ul class = "list-group list-group-flush">
@@ -73,12 +65,17 @@ const teamCreator = teamArray => {
                 </ul>
             </div>
 
+
+
+
+
          </div>
       </body>
 </html>`;
 }
 
 
+exports.teamCreator = teamCreator;
 
 
 
@@ -175,7 +172,7 @@ const teamCreator = teamArray => {
 // </html>`;
 // }
 
-exports.teamCreator = teamCreator;
+
 // exports.managerHTML = managerHTML;
 // exports.engineerHTML = engineerHTML;
 // exports.internHTML = internHTML;

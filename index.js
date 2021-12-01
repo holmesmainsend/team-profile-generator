@@ -1,8 +1,6 @@
-// TODO: find way to cycle through all engineer/array items for adding to HTML
-// TODO: fix github linking
+// TODO: find way to cycle through all array items for adding cards to HTML
 // TODO: add number validation
 // TODO: account for spaces
-// TODO: fix formatting on page
 // TODO: create video and create sample HTML page in process
 // TODO: add README using README generator
 
@@ -10,7 +8,6 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const generateHTML = require("./generateHTML");
 
-const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -100,7 +97,6 @@ function initManager() {
       } else if (data.continuation === "Intern") {
         initIntern();
       } else {
-        // let managerFinal = generateHTML.managerHTML(teamArray[0]);
         writeFile(generateHTML.teamCreator(teamArray));
         console.log("Your team page has been generated!");
       }
@@ -244,14 +240,11 @@ function initIntern() {
   .then((data) => {
     const intern = new Intern(data.name, data.id, data.email, data.school);
     teamArray.push(intern);
-    console.log(teamArray);
     if (data.continuation === "Engineer") {
       initEngineer();
     } else if (data.continuation === "Intern") {
       initIntern();
     } else {
-      // let internFinal = generateHTML.internHTML(internArray[0]);
-      // let managerFinal = generateHTML.managerHTML(managerArray[0]);
       // writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
       console.log("Your team page has been generated!");
     }
