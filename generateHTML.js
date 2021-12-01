@@ -46,29 +46,29 @@ const teamCreator = teamArray => {
           <div class="px-5 text-danger border-bottom border-danger">Interns</div>
       </div>
   </div>
-        <div class = "container pt-5 mt-4 px-3">
+        <div class = "container pt-5 mt-4 d-flex flex-row justify-content-around align-items-center">
             
             <div class = "card bg-dark text-info border border-info" style = "width: 18%">
                 <h2 class = "card-title text-center"> Manager Name </h2>
                   <ul class = "list-group list-group-flush">
                     <li class="list-group-item text-dark bg-info border-bottom border-dark">ID: Manager ID </li>
-                    <li class="list-group-item text-dark bg-info border-bottom border-dark">Email: <a href = "mailto: Manager Email"> Manager Email </a></li>
-                    <li class="list-group-item text-dark bg-info">Office Number: Office Number </li>
+                    <li class="list-group-item text-dark bg-info border-bottom border-dark">Email: <a class = "text-reset" href = "mailto: Manager Email"> Manager Email </a></li>
+                    <li class="list-group-item text-dark bg-info">Office Number: Office No. </li>
                   </ul>
             </div>
             <div class = "card bg-dark text-warning border border-warning" style = "width: 18%">
               <h2 class = "card-title text-center"> Engineer Name </h2>
                 <ul class = "list-group list-group-flush">
                   <li class="list-group-item text-dark bg-warning border-bottom border-dark">ID: Engineer ID </li>
-                  <li class="list-group-item text-dark bg-warning border-bottom border-dark">Email: <a href = "mailto: Engineer Email"> Engineer Email </a></li>
-                  <li class="list-group-item text-dark bg-warning">GitHub: <a href="github.com/ Github "> Github </a></li>
+                  <li class="list-group-item text-dark bg-warning border-bottom border-dark">Email: <a class = "text-reset" href = "mailto: Engineer Email"> Engineer Email </a></li>
+                  <li class="list-group-item text-dark bg-warning">GitHub: <a class = "text-reset" href="github.com/ Github "> Github </a></li>
                 </ul>
             </div>
             <div class = "card bg-dark text-danger border border-danger" style = "width: 18%">
               <h2 class = "card-title text-center"> Intern Name </h2>
                 <ul class = "list-group list-group-flush">
                   <li class="list-group-item text-dark bg-danger border-bottom border-dark">ID: Intern ID </li>
-                  <li class="list-group-item text-dark bg-danger border-bottom border-dark">Email: <a href = "mailto: Intern Email "> Intern Email </a></li>
+                  <li class="list-group-item text-dark bg-danger border-bottom border-dark">Email: <a class = "text-reset" href = "mailto: Intern Email "> Intern Email </a></li>
                   <li class="list-group-item text-dark bg-danger">School: School </li>
                 </ul>
             </div>
