@@ -13,7 +13,7 @@
 
 
 ## Description
-Countless organizations would benefit from having a single webpage to easily find all staff information. This application - through Node.js - allows users to create just that. While the sample file here is generated with Managers, Engineers, and Interns, changing the framework to generate anything from Teachers to Doctors would be a matter of a few quick JS edits.
+Countless organizations would benefit from having a single webpage to easily find all staff information. This application - through Node.js - allows users to create just that. While the sample file here is generated with Managers, Engineers, and Interns, changing the framework to generate anything from Teachers to Doctors would be a matter of a few quick JS edits (the same applies to the ratios of different employee classes to one another).
 
 
 ## Installation
