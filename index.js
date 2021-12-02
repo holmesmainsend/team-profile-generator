@@ -31,8 +31,6 @@ const writeFile = fileContent => {
 };
 
 function initManager() {
-  teamArray = [];
-
   inquirer
   .prompt([
     {
@@ -87,19 +85,23 @@ function initManager() {
       type: "list",
       name: "continuation",
       message: "Next Team Member?",
-      choices: ["Engineer", "Intern", "None, finalize team"],
+      choices: ["Manager", "Engineer", "Intern", "None, finalize team"],
     },
   ])
   .then((data) => {
     const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
     teamArray.push(manager);
-      if (data.continuation === "Engineer") {
+      if (data.continuation === "Manager") {
+        initManager();
+      } else if (data.continuation === "Engineer") {
         initEngineer();
       } else if (data.continuation === "Intern") {
         initIntern();
       } else {
-        let managerFinal = generateHTML.managerHTML(teamArray[0]);
-        writeFile(generateHTML.finalHTML(managerFinal));
+        // for (i = 0; i < teamArray.length; i++) {
+        //   finalManager = generateHTML.managerHTML(teamArray[i]);
+        // }
+        writeFile(generateHTML.finalHTML(teamArray[0]));
         console.log("Your team page has been generated!");
       }
   });
@@ -160,13 +162,15 @@ function initEngineer() {
       type: "list",
       name: "continuation",
       message: "Next Team Member?",
-      choices: ["Engineer", "Intern", "None, finalize team"],
+      choices: ["Manager", "Engineer", "Intern", "None, finalize team"],
     },
   ])
   .then((data) => {
     const engineer = new Engineer(data.name, data.id, data.email, data.github);
     teamArray.push(engineer);
-    if (data.continuation === "Engineer") {
+    if (data.continuation === "Manager") {
+      initManager();
+    } else if (data.continuation === "Engineer") {
       initEngineer();
     } else if (data.continuation === "Intern") {
       initIntern();
@@ -236,13 +240,15 @@ function initIntern() {
       type: "list",
       name: "continuation",
       message: "Next Team Member?",
-      choices: ["Engineer", "Intern", "None, finalize team"],
+      choices: ["Manager", "Engineer", "Intern", "None, finalize team"],
     },
   ])
   .then((data) => {
     const intern = new Intern(data.name, data.id, data.email, data.school);
     teamArray.push(intern);
-    if (data.continuation === "Engineer") {
+    if (data.continuation === "Manager") {
+      initManager();
+    } else if (data.continuation === "Engineer") {
       initEngineer();
     } else if (data.continuation === "Intern") {
       initIntern();
@@ -253,5 +259,10 @@ function initIntern() {
 });
 };
 
+function initProgram() {
+  teamArray = [];
+  initManager();
+};
+
 // App Start
-initManager();
+initProgram();

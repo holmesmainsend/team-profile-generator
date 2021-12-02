@@ -73,7 +73,8 @@ const Intern = require('./lib/Intern');
 // }
 
 function managerHTML(teamArray) {
-  let {
+  // for (i = 0; i < teamArray.length; i++) {
+    let {
     name: managerName,
     id: managerId,
     email: managerEmail,
@@ -88,6 +89,7 @@ function managerHTML(teamArray) {
       <li class="list-group-item text-dark bg-info">Office Number: ${officeNumber}</li>
     </ul>
 </div>`;
+  // }
 }
 
 function engineerHTML(engineerArray) {
@@ -126,8 +128,8 @@ function internHTML(internArray) {
 </div>`;
 }
 
-function finalHTML(managerArray) {
-  return `<!DOCTYPE html>
+function finalHTML() {
+  let openingHTML = `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8">
@@ -146,17 +148,21 @@ function finalHTML(managerArray) {
           <div class="px-5 text-danger border-bottom border-danger">Interns</div>
       </div>
       </div>
-        <div class = "container pt-5 mt-4 d-flex flex-row justify-content-around align-items-center">
+        <div class = "container pt-5 mt-4 d-flex flex-row justify-content-around align-items-center">`
 
 
 
-        ${managerArray}
+  let intermediateManagerHTML = `${managerHTML(teamArray[0])}`;
+  let intermediateEngineerHTML = ``;
+  let intermediateInternHTML = ``;
 
 
 
-        </div>
+  let closingHTML =`</div>
       </body>
 </html>`;
+
+return openingHTML + intermediateManagerHTML + intermediateEngineerHTML + intermediateInternHTML + closingHTML;
 }
 
 
