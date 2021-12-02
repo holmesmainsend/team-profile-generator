@@ -1,9 +1,7 @@
-// TODO: find way to cycle through all array items for adding cards to HTML
 // TODO: add number validation
 // TODO: account for spaces
-// TODO: open Github link in new tab
 // TODO: create video and create sample HTML page in process
-// TODO: add README using README generator
+// TODO: add README
 
 const fs = require("fs");
 const inquirer = require("inquirer");
@@ -12,7 +10,6 @@ const generateHTML = require("./generateHTML");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-
 
 // Function to write README file
 const writeFile = fileContent => {
@@ -98,10 +95,7 @@ function initManager() {
       } else if (data.continuation === "Intern") {
         initIntern();
       } else {
-        // for (i = 0; i < teamArray.length; i++) {
-        //   finalManager = generateHTML.managerHTML(teamArray[i]);
-        // }
-        writeFile(generateHTML.finalHTML(teamArray[0]));
+        writeFile(generateHTML.finalHTML(teamArray));
         console.log("Your team page has been generated!");
       }
   });
@@ -175,11 +169,7 @@ function initEngineer() {
     } else if (data.continuation === "Intern") {
       initIntern();
     } else {
-    //   for (i = 0; i < engineerArray.length; i ++) {
-    //     var engineerFinal = generateHTML.engineerHTML(engineerArray[i]);
-    // } 
-      // let managerFinal = generateHTML.managerHTML(managerArray[0]);
-      // writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
+      writeFile(generateHTML.finalHTML(teamArray));
       console.log("Your team page has been generated!");
     }
 });
@@ -226,12 +216,12 @@ function initIntern() {
     },
     {
       name: "school",
-      message: "School Name: ",
+      message: "School Name (no spaces): ",
       validate: (school) => {
         if (school) {
           return true;
         } else {
-          console.log("Please enter a school name");
+          console.log("Please enter a school name without spaces");
           return false;
         }
       },
@@ -253,7 +243,7 @@ function initIntern() {
     } else if (data.continuation === "Intern") {
       initIntern();
     } else {
-      // writeFile(generateHTML.finalHTML(managerFinal, engineerFinal, internFinal));
+      writeFile(generateHTML.finalHTML(teamArray));
       console.log("Your team page has been generated!");
     }
 });
