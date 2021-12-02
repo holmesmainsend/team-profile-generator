@@ -1,6 +1,7 @@
 // TODO: find way to cycle through all array items for adding cards to HTML
 // TODO: add number validation
 // TODO: account for spaces
+// TODO: open Github link in new tab
 // TODO: create video and create sample HTML page in process
 // TODO: add README using README generator
 
@@ -97,7 +98,8 @@ function initManager() {
       } else if (data.continuation === "Intern") {
         initIntern();
       } else {
-        writeFile(generateHTML.teamCreator(teamArray));
+        let managerFinal = generateHTML.managerHTML(teamArray[0]);
+        writeFile(generateHTML.finalHTML(managerFinal));
         console.log("Your team page has been generated!");
       }
   });
