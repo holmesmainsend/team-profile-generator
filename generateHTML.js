@@ -76,11 +76,11 @@ function finalHTML(teamArray) {
       </div>
       </div>
         <div class = "container pt-5 mt-4 d-flex flex-row justify-content-around align-items-center">`
-          let managerCards = `${managerHTML(managerArray[0])}${managerHTML(managerArray[1])}${managerHTML(managerArray[2])}`;
+          let managerCards = `${managerHTML(managerArray[0])}`;
           let closerOpener1 = '</div><div class = "container pt-5 mt-4 d-flex flex-row justify-content-around align-items-center">'
   
   
-          let engineerCards = `${engineerHTML(engineerArray[0])}${engineerHTML(engineerArray[1])}${engineerHTML(engineerArray[2])}`;
+          let engineerCards = `${engineerHTML(engineerArray[0])}${engineerHTML(engineerArray[1])}`;
           let closerOpener2 = `</div><div class = "container py-5 mt-4 d-flex flex-row justify-content-around align-items-center">`
   
   
