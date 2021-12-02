@@ -1,7 +1,5 @@
-// TODO: add number validation
-// TODO: account for spaces
 // TODO: create video and create sample HTML page in process
-// TODO: add README
+// TODO: add README with link to video + HTML screenshot
 
 const fs = require("fs");
 const inquirer = require("inquirer");
