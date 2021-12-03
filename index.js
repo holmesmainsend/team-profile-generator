@@ -1,6 +1,3 @@
-// TODO: create video and create sample HTML page in process
-// TODO: add README with link to video + HTML screenshot
-
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateHTML = require("./generateHTML");
